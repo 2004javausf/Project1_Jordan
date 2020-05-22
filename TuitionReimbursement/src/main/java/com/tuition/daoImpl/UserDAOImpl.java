@@ -17,6 +17,32 @@ public class UserDAOImpl implements UserDAO {
 	Connection connection = null;
 	PreparedStatement stmt = null;
 	CallableStatement call = null;
+	
+//============================================================
+//=====================Get All Users==========================
+//============================================================
+
+	@Override
+	public void createUser(User user) {
+		try {
+			connection = cc.getConnection();
+			String sql ="INSERT INTO USERS VALUES(null,?,?)"; //1st value is the password
+																// 2nd value is the username
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, user.getPassword());
+			stmt.setString(2, user.getName());
+			stmt.execute();	
+		}catch(SQLException e) {
+			
+		}finally {
+			closeResources();
+		}
+		
+	}
+	
+//============================================================
+//=====================Get All Users==========================
+//============================================================
 
 	@Override
 	public List<User> getUsers() {

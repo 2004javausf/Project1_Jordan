@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tuition.beans.User;
 import com.tuition.dao.UserDAO;
 import com.tuition.daoImpl.UserDAOImpl;
 
@@ -37,7 +38,10 @@ public class Users extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		ObjectMapper mapper = new ObjectMapper();
+		User user = mapper.readValue(request.getInputStream(), User.class);
+		UserDAO udi = new UserDAOImpl();
+		udi.createUser(user);	
 	}
 
 }

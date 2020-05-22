@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tuition-client"
+    }
+  },
+  "defaultProject": "tuition-client",
+  "cli": {
+    "analytics": false
+  }
 }
