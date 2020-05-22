@@ -42,6 +42,7 @@ public class Users extends HttpServlet {
 		User user = mapper.readValue(request.getInputStream(), User.class);
 		UserDAO udi = new UserDAOImpl();
 		udi.createUser(user);	
+		response.setStatus(201);
 	}
 
 }
