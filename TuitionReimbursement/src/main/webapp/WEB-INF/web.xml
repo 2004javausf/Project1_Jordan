@@ -19,5 +19,14 @@
     <servlet-name>Users</servlet-name>
     <url-pattern>/users</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>TuitionFormServlet</display-name>
+    <servlet-name>TuitionFormServlet</servlet-name>
+    <servlet-class>com.tuition.servlets.TuitionFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TuitionFormServlet</servlet-name>
+    <url-pattern>/form</url-pattern>
+  </servlet-mapping>
 </web-app>
