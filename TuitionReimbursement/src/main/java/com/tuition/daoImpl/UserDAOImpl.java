@@ -55,13 +55,14 @@ public class UserDAOImpl implements UserDAO {
 			while(rs.next()) {
 				User user = new User();
 				user.setUser_id(rs.getInt("USER_ID"));
-				user.setName(rs.getString("NAME"));
+				user.setName(rs.getString("USER_NAME"));
 				user.setPassword(rs.getString("PASSWORD"));
 				
 				users.add(user);
 			}
 		
 		}catch(SQLException e) {
+			System.out.println("Inside the UserDAOImpl");
 			e.printStackTrace();
 		}finally {
 			closeResources();

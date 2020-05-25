@@ -16,16 +16,31 @@ public class TuitionForm {
 	private String event_type;
 	private Blob attachments;
 	private int user_id;
+	private int grade_id;
 	
 	
+	public int getGrade_id() {
+		return grade_id;
+	}
+
+
+	public void setGrade_id(int grade_id) {
+		this.grade_id = grade_id;
+	}
+
+
 	public TuitionForm() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
+
+
+
 	public TuitionForm(int form_id, String first_name, String last_name, Date start_date, Timestamp start_time,
-			String location, String description, double cost, String event_type, Blob attachments, int user_id) {
+			String location, String description, double cost, String event_type, Blob attachments, int user_id,
+			int grade_id) {
 		super();
 		this.form_id = form_id;
 		this.first_name = first_name;
@@ -38,6 +53,7 @@ public class TuitionForm {
 		this.event_type = event_type;
 		this.attachments = attachments;
 		this.user_id = user_id;
+		this.grade_id = grade_id;
 	}
 
 

@@ -9,7 +9,7 @@ import com.tuition.beans.TuitionForm;
 import com.tuition.dao.TuitionFormDAO;
 import com.tuition.util.ConnConfig;
 
-public class TuitionFomDAOImpl implements TuitionFormDAO {
+public class TuitionFormDAOImpl implements TuitionFormDAO {
 	ConnConfig cc = ConnConfig.getInstance();
 	Connection connection = null;
 	PreparedStatement stmt = null;
@@ -19,7 +19,7 @@ public class TuitionFomDAOImpl implements TuitionFormDAO {
 	public void addForm(TuitionForm form) {
 		try {
 			connection = cc.getConnection();
-			String sql ="INSERT INTO TUITION_FORM VALUES(null,?,?,?,?,?,?,?,?,?,?)"; 
+			String sql ="INSERT INTO TUITION_FORM VALUES(null,?,?,?,?,?,?,?,?,?,?,?)"; 
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, form.getFirst_name() );
 			stmt.setString(2, form.getLast_name() );
@@ -31,6 +31,7 @@ public class TuitionFomDAOImpl implements TuitionFormDAO {
 			stmt.setString(8, form.getEvent_type());
 			stmt.setBlob(9, form.getAttachments());
 			stmt.setInt(10, form.getUser_id() );
+			stmt.setInt(11,  form.getGrade_id());
 			stmt.execute();	
 		}catch(SQLException e) {
 			e.printStackTrace();
