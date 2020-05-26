@@ -3,43 +3,46 @@ package com.tuition.daoImpl;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.tuition.beans.TuitionForm;
-import com.tuition.dao.TuitionFormDAO;
+import com.tuition.beans.Employee;
+import com.tuition.dao.EmployeeDAO;
 import com.tuition.util.ConnConfig;
 
-public class TuitionFormDAOImpl implements TuitionFormDAO {
+public class EmployeeDAOImpl implements EmployeeDAO {
+	
 	ConnConfig cc = ConnConfig.getInstance();
 	Connection connection = null;
 	PreparedStatement stmt = null;
 	CallableStatement call = null;
 
 	@Override
-	public void addForm(TuitionForm form) {
+	public Employee getEmployee(String username, String password) {
+		Employee employee = new Employee();
 		try {
-			connection = cc.getConnection();
-			String sql ="INSERT INTO TUITION_FORM VALUES(null,?,?,?,?,?,?,?,?,NULL,?,1)"; 
-			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, form.getFirst_name() );
-			stmt.setString(2, form.getLast_name() );
-			stmt.setString(3, form.getStart_date() );
-			stmt.setString(4, form.getStart_time() );
-			stmt.setString(5, form.getLocation() );
-			stmt.setString(6, form.getDescription());
-			stmt.setDouble(7, form.getCost());
-			stmt.setString(8, form.getEvent_type());
-			//stmt.setBlob(9, form.getAttachments());
-			stmt.setInt(9, form.getUser_id() );
-			//stmt.setInt(10,  form.getGrade_id());
-			stmt.execute();	
+		connection = cc.getConnection();
+		String sql = "SELECT * FROM EMPLOYEES WHERE IN"
+				+ "(SELECT USER_ID FROM USERS WHERE USERNAME = ? AND PASSWORD = ? )";
+		stmt = connection.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		while(rs.next()) {
+			employee.setEmployee_id(rs.getInt("employee_id"));
+			employee.setFirst_name(rs.getString("first_name"));
+			employee.setLast_name(rs.getString("last_name"));
+			employee.setTuition_limit(rs.getDouble("tuition_limit"));
+			employee.setUser_id(rs.getInt("user_id"));
+			employee.setDept_id(rs.getInt("dept_id"));
+		}
+		
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			closeResources();
 		}
+		
+		return employee;
 	}
-
 //============================================================
 //=====================Close Resources========================
 //============================================================
@@ -64,7 +67,4 @@ public class TuitionFormDAOImpl implements TuitionFormDAO {
 		}
 	}
 		
-	
-	
-
 }

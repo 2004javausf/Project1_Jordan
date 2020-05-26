@@ -8,27 +8,16 @@ public class TuitionForm {
 	private int form_id;
 	private String first_name;
 	private String last_name;
-	private Date start_date;
-	private Timestamp start_time;
+	private String start_date;
+	private String start_time;
 	private String location;
 	private String description;
 	private double cost;
 	private String event_type;
-	private Blob attachments;
+	//private Blob attachments;
 	private int user_id;
 	private int grade_id;
 	
-	
-	public int getGrade_id() {
-		return grade_id;
-	}
-
-
-	public void setGrade_id(int grade_id) {
-		this.grade_id = grade_id;
-	}
-
-
 	public TuitionForm() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -38,8 +27,8 @@ public class TuitionForm {
 
 
 
-	public TuitionForm(int form_id, String first_name, String last_name, Date start_date, Timestamp start_time,
-			String location, String description, double cost, String event_type, Blob attachments, int user_id,
+	public TuitionForm(int form_id, String first_name, String last_name, String start_date, String start_time,
+			String location, String description, double cost, String event_type, int user_id,
 			int grade_id) {
 		super();
 		this.form_id = form_id;
@@ -51,7 +40,7 @@ public class TuitionForm {
 		this.description = description;
 		this.cost = cost;
 		this.event_type = event_type;
-		this.attachments = attachments;
+		//this.attachments = attachments;
 		this.user_id = user_id;
 		this.grade_id = grade_id;
 	}
@@ -87,22 +76,22 @@ public class TuitionForm {
 	}
 
 
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
 
 
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
 
 
-	public Timestamp getStart_time() {
+	public String getStart_time() {
 		return start_time;
 	}
 
 
-	public void setStart_time(Timestamp start_time) {
+	public void setStart_time(String start_time) {
 		this.start_time = start_time;
 	}
 
@@ -147,16 +136,6 @@ public class TuitionForm {
 	}
 
 
-	public Blob getAttachments() {
-		return attachments;
-	}
-
-
-	public void setAttachments(Blob attachments) {
-		this.attachments = attachments;
-	}
-
-
 	public int getUser_id() {
 		return user_id;
 	}
@@ -165,14 +144,23 @@ public class TuitionForm {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
+	
+	
+	public int getGrade_id() {
+		return grade_id;
+	}
+
+
+	public void setGrade_id(int grade_id) {
+		this.grade_id = grade_id;
+	}
 
 
 	@Override
 	public String toString() {
 		return "TuitionForm [form_id=" + form_id + ", first_name=" + first_name + ", last_name=" + last_name
 				+ ", start_date=" + start_date + ", start_time=" + start_time + ", location=" + location
-				+ ", description=" + description + ", cost=" + cost + ", event_type=" + event_type + ", attachments="
-				+ attachments + ", user_id=" + user_id + "]";
+				+ ", description=" + description + ", cost=" + cost + ", event_type=" + event_type + ", user_id=" + user_id + "]";
 	} 
 	
 	

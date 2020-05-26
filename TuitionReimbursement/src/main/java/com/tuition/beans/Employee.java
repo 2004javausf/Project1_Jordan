@@ -6,18 +6,26 @@ public class Employee {
 	private String first_name;
 	private String last_name;
 	private double tuition_limit;
+	private int user_id;
+	private int dept_id;
 	
+
+
+
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int employee_id, String first_name, String last_name, double tuition_limit) {
+	public Employee(int employee_id, String first_name, String last_name, double tuition_limit, int user_id,
+			int dept_id) {
 		super();
 		this.employee_id = employee_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.tuition_limit = tuition_limit;
+		this.user_id = user_id;
+		this.dept_id = dept_id;
 	}
 
 	public int getEmployee_id() {
@@ -51,11 +59,30 @@ public class Employee {
 	public void setTuition_limit(double tuition_limit) {
 		this.tuition_limit = tuition_limit;
 	}
+	
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getDept_id() {
+		return dept_id;
+	}
+
+	public void setDept_id(int dept_id) {
+		this.dept_id = dept_id;
+	}
 
 	@Override
 	public String toString() {
 		return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", tuition_limit=" + tuition_limit + "]";
+				+ ", tuition_limit=" + tuition_limit + ", user_id=" + user_id + ", dept_id=" + dept_id + "]";
 	}
+
+
+
 	
 }
