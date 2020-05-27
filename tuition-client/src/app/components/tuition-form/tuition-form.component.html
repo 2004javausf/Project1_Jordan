@@ -1,50 +1,55 @@
+<div *ngIf="loggedIn">
 <h3>Tuition Form</h3>
-    <label for="first_name">First Name: </label>
-    <input [(ngModel)]="form.first_name" type="text" id="first_name" placeholder="Enter First Name"> 
-    <br/>
-    <label for="last_name">Last Name: </label>
-    <input [(ngModel)]="form.last_name" type="text" id="last_name" placeholder="Enter Last Name">
-    <br/>
-    <label for="event_date">Event Date: </label>
-    <input [(ngModel)]="form.start_date" type="date" id="event_date"> 
-    <br/>
-    <label for="event_time">Event Time: </label>
-    <input [(ngModel)]="form.start_time" type="time" id="event_time">
-    <br/>
-    <label for="location">Location: </label>
-    <input [(ngModel)]="form.location" type="string" id="location">
-    <br/>
-    <label for="description">Description: </label>
-    <textarea [(ngModel)]="form.description" type="textarea" id="description">
-    </textarea>
-    <!-- Event Cost -->
-    <br />
-    <label for="cost">Event Cost:</label>
-    <input [(ngModel)]="form.cost" type="number" id="event_cost">
-    <!-- Grade Format -->
-    <br />
-    <label for="grade">Grading: </label>
-    <select [(ngModel)]="form.grade_id" name="grade" id="grade">
-        <option value="1">N/A</option>
-        <option value=2>Pass</option>
-        <option value=3>Fail</option>
-        <option value=4>Presentation</option>
-    </select> <span style="color:darkgrey"> Omit if event hasn't happened yet.</span>
-    <!-- Work Related Justification -->
-    <br />
-    <label for="department">Which Department Would This Fall Under: </label>
-    <select [(ngModel)]="form.event_type" name="department" id="department">
-        <option value="IT">IT</option>
-        <option value="Sales">Sales</option>
-        <option value="Retail">Retail</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Operations">Operations</option>
-        <option value="Benefits">Benefits</option>
-    </select>
-    <!-- Attachments-->
-    <br />
-    <label for="attachments">Additional Information</label>
-    <input  type="file" id="attachments">
-    <!-- Submit -->
-    <br/>
-    <input type="submit" (click)="onSubmit()" value="File Reimbursement">
+        <label for="first_name">First Name: </label>
+        <input [(ngModel)]="form.first_name" type="text" id="first_name" placeholder="Enter First Name"> 
+        <br/>
+        <label for="last_name">Last Name: </label>
+        <input [(ngModel)]="form.last_name" type="text" id="last_name" placeholder="Enter Last Name">
+        <br/>
+        <label for="event_date">Event Date: </label>
+        <input [(ngModel)]="form.start_date" type="date" id="event_date"> 
+        <br/>
+        <label for="event_time">Event Time: </label>
+        <input [(ngModel)]="form.start_time" type="time" id="event_time">
+        <br/>
+        <label for="location">Location: </label>
+        <input [(ngModel)]="form.location" type="string" id="location">
+        <br/>
+        <label for="description">Description: </label>
+        <textarea [(ngModel)]="form.description" type="textarea" id="description">
+        </textarea>
+        <!-- Event Cost -->
+        <br />
+        <label for="cost">Event Cost:</label>
+        <input [(ngModel)]="form.cost" type="number" id="event_cost">
+        <!-- Grade Format -->
+        <br />
+        <label for="grade">Grading: </label>
+        <select [(ngModel)]="form.grade_id" name="grade" id="grade">
+            <option value="1">N/A</option>
+            <option value=2>Pass</option>
+            <option value=3>Fail</option>
+            <option value=4>Presentation</option>
+        </select> <span style="color:darkgrey"> Omit if event hasn't happened yet.</span>
+        <!-- Work Related Justification -->
+        <br />
+        <label for="department">Which Department Would This Fall Under: </label>
+        <select [(ngModel)]="form.event_type" name="department" id="department">
+            <option value="IT">IT</option>
+            <option value="Sales">Sales</option>
+            <option value="Retail">Retail</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Operations">Operations</option>
+            <option value="Benefits">Benefits</option>
+        </select>
+        <!-- Attachments-->
+        <br />
+        <label for="attachments">Additional Information</label>
+        <input  type="file" id="attachments">
+        <!-- Submit -->
+        <br/>
+        <input type="submit" (click)="onSubmit()" value="File Reimbursement">
+</div>
+<div *ngIf="!this.employee">
+    <h3>You need to <a routerLink="/employee/login">login</a>!</h3>
+</div>

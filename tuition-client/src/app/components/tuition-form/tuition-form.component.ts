@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormService } from '../../services/form.service';
 import {TuitionForm} from '../../interfaces/tuition-form'
 import {FormBuilder} from '@angular/forms';
+import { Employee } from 'src/app/interfaces/employee';
 
 
 @Component({
@@ -10,6 +11,9 @@ import {FormBuilder} from '@angular/forms';
   styleUrls: ['./tuition-form.component.css']
 })
 export class TuitionFormComponent implements OnInit {
+
+  @Input() employee: Employee;
+  @Input() loggedIn;
 
  form: TuitionForm = {
    first_name: "",

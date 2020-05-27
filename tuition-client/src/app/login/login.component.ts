@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
     password: ""
   }
 
+  isLoggedIn = false;
+
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
@@ -34,9 +36,12 @@ export class LoginComponent implements OnInit {
   onClick(){
     this.employeeService.getEmployee(this.user).subscribe((res) => {
       this.employee = res;
-      console.log(res);
+      this.isLoggedIn = true;
+      console.log(this.employee);
     });
   }
+
+  
 
 
 
