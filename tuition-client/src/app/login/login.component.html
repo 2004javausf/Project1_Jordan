@@ -1,0 +1,11 @@
+<h3>Login Here!</h3>
+<h3>Logging in as A...</h3>
+
+<h4><em>Employee</em></h4>
+<label  for="username">Username:</label>
+<input [(ngModel)]="user.name" type="text" id="username" placeholder="Enter username"/>
+<br/>
+<label for="password">Password:</label>
+<input [(ngModel)]="user.password" type="text" id="password" placeholder="Enter password" />
+<br/>
+<input  type="submit" (click)="onClick()" value="Login As Employee">

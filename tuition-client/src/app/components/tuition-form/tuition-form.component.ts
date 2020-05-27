@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormService } from '../services/form.service';
-import {TuitionForm} from '../interfaces/tuition-form'
+import { FormService } from '../../services/form.service';
+import {TuitionForm} from '../../interfaces/tuition-form'
 import {FormBuilder} from '@angular/forms';
 
 

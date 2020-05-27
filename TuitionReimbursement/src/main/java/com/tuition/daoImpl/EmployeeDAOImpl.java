@@ -22,9 +22,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Employee employee = new Employee();
 		try {
 		connection = cc.getConnection();
-		String sql = "SELECT * FROM EMPLOYEES WHERE IN"
-				+ "(SELECT USER_ID FROM USERS WHERE USERNAME = ? AND PASSWORD = ? )";
+		String sql = "SELECT * FROM EMPLOYEES WHERE USER_ID IN"
+				+ "(SELECT USER_ID FROM USERS WHERE USER_NAME = ? AND PASSWORD = ? )";
 		stmt = connection.prepareStatement(sql);
+		stmt.setString(1, username);
+		stmt.setString(2, password);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
 			employee.setEmployee_id(rs.getInt("employee_id"));
