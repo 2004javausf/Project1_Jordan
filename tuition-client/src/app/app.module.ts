@@ -8,7 +8,8 @@ import { UserComponent } from './components/user/user.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TuitionFormComponent } from './components/tuition-form/tuition-form.component';
 import { EmployeeComponent } from './components/employee/employee.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { TuitionFormDetailComponent } from './components/tuition-form-detail/tuition-form-detail.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component'
     UserComponent,
     TuitionFormComponent,
     EmployeeComponent,
-    LoginComponent
+    LoginComponent,
+    TuitionFormDetailComponent
   ],
   imports: [
     BrowserModule,

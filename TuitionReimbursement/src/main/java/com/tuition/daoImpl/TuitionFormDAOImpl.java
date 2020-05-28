@@ -3,6 +3,7 @@ package com.tuition.daoImpl;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.tuition.beans.TuitionForm;
@@ -39,7 +40,39 @@ public class TuitionFormDAOImpl implements TuitionFormDAO {
 			closeResources();
 		}
 	}
+//============================================================
+//=====================Retrieve Form==========================
+//============================================================
 
+	public TuitionForm getFormById(int user_id) {
+		TuitionForm tf = new TuitionForm();
+		try {
+			connection = cc.getConnection();
+			String sql = "SELECT * FROM TUITION_FORM WHERE USER_ID = ?";
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, user_id);
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				tf.setForm_id(rs.getInt("form_id"));
+				tf.setFirst_name(rs.getString("first_name"));
+				tf.setLast_name(rs.getString("last_name"));
+				tf.setStart_date(rs.getString("start_date"));
+				tf.setStart_time(rs.getString("start_time"));
+				tf.setLocation(rs.getString("location"));
+				tf.setDescription(rs.getString("description"));
+				tf.setCost(rs.getDouble("cost"));
+				tf.setEvent_type(rs.getString("event_type"));
+				tf.setUser_id(rs.getInt("user_id"));;
+				tf.setGrade_id(rs.getInt("grade_id"));
+			}	
+		}catch(SQLException e) {
+			
+		}finally {
+			closeResources();
+		}
+		return tf;
+	}
 //============================================================
 //=====================Close Resources========================
 //============================================================

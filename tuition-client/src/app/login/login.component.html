@@ -1,13 +1,16 @@
 <div *ngIf="isLoggedIn == false">
-<h3>Login Here!</h3>
+    <h3>Login Here!</h3>
 
-<h4><em>Employee</em></h4>
-<label  for="username">Username:</label>
-<input [(ngModel)]="user.name" type="text" id="username" placeholder="Enter username"/>
-<br/>
-<label for="password">Password:</label>
-<input [(ngModel)]="user.password" type="text" id="password" placeholder="Enter password" />
-<br/>
-<input  type="submit" (click)="onClick()" value="Login As Employee">
+    <h4><em>Employee</em></h4>
+    <form [formGroup]="myLogin">
+        Value: {{myLogin.value | json}}
+        <br />
+
+        <input placeholder="Enter username" formControlName="name">
+        <br />
+        <input placeholder="Enter your password" formControlName="password">
+        <input (click)="onClick()" type="submit" value="Login" />
+    </form>
 </div>
-<app-tuition-form [loggedIn]="isLoggedIn" [employee]="employee"></app-tuition-form>
+
+<app-tuition-form [loggedIn]="isLoggedIn" [employee]="employee"></app-tuition-form> 

@@ -49,4 +49,14 @@
     <servlet-name>EmployeeLoginServlet</servlet-name>
     <url-pattern>/employee/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetTuitionForm</display-name>
+    <servlet-name>GetTuitionForm</servlet-name>
+    <servlet-class>com.tuition.servlets.GetTuitionForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetTuitionForm</servlet-name>
+    <url-pattern>/getForm</url-pattern>
+  </servlet-mapping>
 </web-app>

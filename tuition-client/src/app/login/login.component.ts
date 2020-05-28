@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { Employee } from '../interfaces/employee';
 import { User } from '../interfaces/user';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,12 @@ import { User } from '../interfaces/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  myLogin: FormGroup;
+
+  loading = false;
+  success = false;
+  isLoggedIn = false;
 
   employee: Employee ={
     employee_id: 0,
@@ -26,20 +33,34 @@ export class LoginComponent implements OnInit {
     password: ""
   }
 
-  isLoggedIn = false;
 
-  constructor(private employeeService: EmployeeService) { }
+
+  constructor(
+    private fb: FormBuilder,
+    private employeeService: EmployeeService
+    ) { }
 
   ngOnInit(): void {
+    this.myLogin = this.fb.group({
+      name: '',
+      password: ''
+    })
+    
+    this.myLogin.valueChanges.subscribe(console.log);
   }
   
-  onClick(){
-    this.employeeService.getEmployee(this.user).subscribe((res) => {
+   async onClick(){
+    this.loading = true;
+    const formValue = this.myLogin.value;
+
+    this.employeeService.getEmployee(formValue).subscribe((res) => {
       this.employee = res;
       this.isLoggedIn = true;
       console.log(this.employee);
     });
   }
+
+
 
   
 
