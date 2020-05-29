@@ -59,4 +59,14 @@
     <servlet-name>GetTuitionForm</servlet-name>
     <url-pattern>/getForm</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SingleUserServlet</display-name>
+    <servlet-name>SingleUserServlet</servlet-name>
+    <servlet-class>com.tuition.servlets.SingleUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SingleUserServlet</servlet-name>
+    <url-pattern>/singleUser</url-pattern>
+  </servlet-mapping>
 </web-app>

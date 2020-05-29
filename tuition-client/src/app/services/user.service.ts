@@ -21,4 +21,5 @@ export class UserService {
   addUser(user: User): Observable<any>{
     return this.httpService.post<any>("http://localhost:8080/TuitionReimbursement/users", JSON.stringify(user))
   }
+  
 }

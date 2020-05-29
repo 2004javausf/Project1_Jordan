@@ -73,6 +73,46 @@ public class TuitionFormDAOImpl implements TuitionFormDAO {
 		}
 		return tf;
 	}
+	
+
+//============================================================
+//=====================Close Resources========================
+//============================================================
+	
+	
+	@Override
+	public void updateForm(TuitionForm form) {
+		
+		try {
+			connection = cc.getConnection();
+			String sql ="UPDATE TUITION_FORM"
+					+ " SET FIRST_NAME = ?, LAST_NAME = ?,"
+					+ "START_DATE = ?, START_TIME = ?, LOCATION = ?,"
+					+ "DESCRIPTION = ?, COST=?, EVENT_TYPE = ?,"
+					+ "USER_ID = ?, GRADE_ID = ?"
+					+ "WHERE FORM_ID = ?";
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, form.getFirst_name() );
+			stmt.setString(2, form.getLast_name() );
+			stmt.setString(3, form.getStart_date() );
+			stmt.setString(4, form.getStart_time() );
+			stmt.setString(5, form.getLocation() );
+			stmt.setString(6, form.getDescription());
+			stmt.setDouble(7, form.getCost());
+			stmt.setString(8, form.getEvent_type());
+			//stmt.setBlob(9, form.getAttachments());
+			stmt.setInt(9, form.getUser_id() );
+			stmt.setInt(10,  form.getGrade_id());
+			stmt.setInt(11, form.getForm_id());
+			stmt.executeUpdate();	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeResources();
+		}
+		
+		
+	}
 //============================================================
 //=====================Close Resources========================
 //============================================================
@@ -96,6 +136,8 @@ public class TuitionFormDAOImpl implements TuitionFormDAO {
 			e.printStackTrace();
 		}
 	}
+
+
 		
 	
 	

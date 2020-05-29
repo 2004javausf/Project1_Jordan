@@ -16,6 +16,7 @@ export class TuitionFormComponent implements OnInit {
   @Input() loggedIn;
 
  form: TuitionForm = {
+   form_id: 0,
    first_name: "",
    last_name: "",
    start_date: "",

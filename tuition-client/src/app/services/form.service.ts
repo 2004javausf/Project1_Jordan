@@ -16,6 +16,10 @@ export class FormService {
   addForm(form: TuitionForm): Observable<any>{
    return this.httpService.post<any>('http://localhost:8080/TuitionReimbursement/form', JSON.stringify(form));
   }
+
+  updateForm(form: TuitionForm): Observable<any>{
+    return this.httpService.put<any>('http://localhost:8080/TuitionReimbursement/form', JSON.stringify(form))
+  }
   
   getFormById(user: User): Observable<any>{
    return this.httpService.post<any>('http://localhost:8080/TuitionReimbursement/getForm', JSON.stringify(user));

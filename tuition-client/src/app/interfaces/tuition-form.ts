@@ -1,6 +1,7 @@
 import { Time } from '@angular/common';
 
 export interface TuitionForm {
+    form_id: number,
     first_name: string,
     last_name: string,
     start_date: string,

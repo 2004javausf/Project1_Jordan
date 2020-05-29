@@ -26,6 +26,15 @@ public class TuitionFormServlet extends HttpServlet {
 		TuitionFormDAO tdi = new TuitionFormDAOImpl(); 
 		tdi.addForm(form);
 		response.setStatus(201);
+	};
+	
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		TuitionForm form = mapper.readValue(request.getInputStream(), TuitionForm.class);
+		System.out.println(form);
+		TuitionFormDAO tdi = new TuitionFormDAOImpl(); 
+		tdi.updateForm(form);
+		response.setStatus(201);
 	}
 
 }

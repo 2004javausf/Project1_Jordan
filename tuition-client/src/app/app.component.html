@@ -1,6 +1,22 @@
 <h2>Welcome</h2>
-<nav>
-    <a routerLink="/tuitionForm">Request for Reimbursement</a>
-    <a routerLink="/editForm"> Edit Your Form</a>
-</nav>
+<div *ngIf="isLoggedIn == true">
+    <nav>
+        <a routerLink="/tuitionForm">Request for Reimbursement</a>
+        <a routerLink="/editForm/{{this.employee.user_id}}"> Edit Your Form</a>
+    </nav>
+</div>
+<div *ngIf="isLoggedIn == false">
+        <h3>Login Here!</h3>
+    
+        <h4><em>Employee</em></h4>
+        <form [formGroup]="myLogin">
+            Value: {{myLogin.value | json}}
+            <br />
+    
+            <input placeholder="Enter username" formControlName="name">
+            <br />
+            <input placeholder="Enter your password" formControlName="password">
+            <input (click)="onClick()" type="submit" value="Login" />
+        </form>
+</div>
 <router-outlet></router-outlet>

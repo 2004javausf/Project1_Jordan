@@ -69,6 +69,34 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return users;
 	}
+
+//============================================================
+//=====================Get A User==========================
+//============================================================
+	public User getSingleUser(int user_id) {
+		User user = new User();
+		try {
+			connection = cc.getConnection();
+			String sql = "SELECT * FROM USERS WHERE USER_ID =?";
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, user_id);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				user.setUser_id(rs.getInt("USER_ID"));
+				user.setName(rs.getString("USER_NAME"));
+				user.setPassword(rs.getString("PASSWORD"));
+			}
+		
+		}catch(SQLException e) {
+			System.out.println("Inside the UserDAOImpl");
+			e.printStackTrace();
+		}finally {
+			closeResources();
+		}
+		return user;
+	}
+	
+	
 //============================================================
 //=====================Close Resources========================
 //============================================================
