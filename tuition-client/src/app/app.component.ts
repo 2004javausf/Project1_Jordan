@@ -47,7 +47,7 @@ export class AppComponent {
       password: ''
     })
 
-    this.myLogin.valueChanges.subscribe(console.log);
+   // this.myLogin.valueChanges.subscribe(console.log);
   }
 
   async onClick() {
