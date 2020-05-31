@@ -14,7 +14,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class TuitionFormDetailComponent implements OnInit {
 
   myTuitionForm: FormGroup
-
+  isLoggedIn = false;
   loading = false;
   success = false;
 
@@ -49,7 +49,7 @@ export class TuitionFormDetailComponent implements OnInit {
     // })
 
     this.myTuitionForm = this.fb.group({
-      form_id: '',
+      form_id: 0,
       first_name: '',
       last_name: '',
       start_date: '',
@@ -59,13 +59,19 @@ export class TuitionFormDetailComponent implements OnInit {
       cost: 0,
       event_type: '',
       user_id: 0,
-      grade_id: 0
+      grade_id: 0,
+      submitted: '',
+      approved: ''
     })
   }
+
+
 
   getUserForm(): void {
     this.user.user_id = +this.route.snapshot.paramMap.get('id');
     this.formService.getFormById(this.user).subscribe((res) =>{
+      this.form = res;
+      console.log(this.form.approved)
       this.editForm(res);
     });
   }
@@ -91,10 +97,22 @@ export class TuitionFormDetailComponent implements OnInit {
       cost: form.cost,
       event_type: form.event_type,
       user_id: form.user_id,
-      grade_id: form.grade_id
+      grade_id: form.grade_id,
+      approved: form.approved
     })
   }
 
+  submitForApproval() {
+    this.loading = true;
+    this.myTuitionForm.patchValue({
+      submitted: 'yes'
+    })
+    const formValue = this.myTuitionForm.value;
+    console.log(formValue);
+    this.formService.updateForm(formValue).subscribe((res) => {
+      console.log(res);
+    })
+  }
   
 
 }

@@ -25,10 +25,13 @@ export class TuitionFormComponent implements OnInit {
    description: "",
    cost: 0,
    event_type: "",
-   user_id: 69,
-   grade_id: 0
+   user_id: 0,
+   grade_id: 0,
+   submitted: '',
+   approved: ''
+
  } 
- submitted = false;
+ submit = false;
 
   constructor(
     private formService: FormService) { }
@@ -37,7 +40,7 @@ export class TuitionFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.submitted = true;
+    this.submit = true;
     this.formService.addForm(this.form).subscribe(res =>{ 
       this.form.first_name= "";
       this.form.last_name= "";
@@ -49,6 +52,8 @@ export class TuitionFormComponent implements OnInit {
       this.form.event_type= "";
       this.form.user_id =69
       this.form.grade_id= 0;
+      this.form.submitted ='NO';
+      this.form.approved = "PENDING"
     })
   }
 

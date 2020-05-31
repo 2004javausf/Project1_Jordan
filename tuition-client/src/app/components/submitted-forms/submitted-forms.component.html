@@ -1,0 +1,34 @@
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Department</th>
+            <th>Grade</th>
+            <th>Approve</th>
+            <th>Deny</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let form of submittedForms">
+            <td>{{form.first_name}}</td>
+            <td>{{form.last_name}}</td>
+            <td>{{form.start_date}}</td>
+            <td>{{form.start_time}}</td>
+            <td>{{form.location}}</td>
+            <td>{{form.description}}</td>
+            <td>{{form.cost}}</td>
+            <td>{{form.event_type}}</td>
+            <td>{{form.grade_id}}</td>
+            <td><button (click)="approve(this.form)">Approve</button></td>
+            <td><button>Deny</button></td>
+        </tr>
+    </tbody>
+</table>
+

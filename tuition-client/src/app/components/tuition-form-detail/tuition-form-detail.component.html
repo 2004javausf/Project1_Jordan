@@ -1,58 +1,60 @@
-<h1>Welcome  </h1>
+<div *ngIf="form.approved !== 'APPROVED'">
 <h1>Would you like to edit your form?</h1>
-
-<h3>Tuition Form</h3>
-<form [formGroup]="myTuitionForm">
-    <input formControlName="form_id" type="hidden" id="form_id">
-    <label for="first_name">First Name: </label>
-    <input formControlName="first_name" type="text" id="first_name" placeholder="Enter First Name">
-    <br />
-    <label for="last_name">Last Name: </label>
-    <input formControlName="last_name" type="text" id="last_name" placeholder="Enter Last Name">
-    <br />
-    <label for="event_date">Event Date: </label>
-    <input formControlName="start_date" type="date" id="event_date">
-    <br />
-    <label for="event_time">Event Time: </label>
-    <input formControlName="start_time" type="time" id="event_time">
-    <br />
-    <label for="location">Location: </label>
-    <input formControlName="location" type="string" id="location">
-    <br />
-    <label for="description">Description: </label>
-    <textarea formControlName="description" type="textarea" id="description">
-            </textarea>
-    <!-- Event Cost -->
-    <br />
-    <label for="cost">Event Cost:</label>
-    <input formControlName="cost" type="number" id="event_cost">
-    <!-- Grade Format -->
-    <br />
-    <label for="grade">Grading: </label>
-    <select formControlName="grade_id" name="grade" id="grade">
-        <option value="1">N/A</option>
-        <option value=2>Pass</option>
-        <option value=3>Fail</option>
-        <option value=4>Presentation</option>
-    </select> <span style="color:darkgrey"> Omit if event hasn't happened yet.</span>
-    <!-- Work Related Justification -->
-    <br />
-    <label for="department">Which Department Would This Fall Under: </label>
-    <select formControlName="event_type" name="department" id="department">
-        <option value="IT">IT</option>
-        <option value="Sales">Sales</option>
-        <option value="Retail">Retail</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Operations">Operations</option>
-        <option value="Benefits">Benefits</option>
-    </select>
-    <!-- Attachments-->
-    <br />
-    <!-- <label for="attachments">Additional Information</label>
-    <input type="file" id="attachments"> -->
-    <!-- Submit -->
-    <br />
-    <input type="submit" (click)="onSubmit()" value="File Reimbursement">
-</form>
-
+    <h3>Tuition Form</h3>
+    <form [formGroup]="myTuitionForm">
+        <label for="first_name">First Name: </label>
+        <input formControlName="first_name" type="text" id="first_name" placeholder="Enter First Name">
+        <br />
+        <label for="last_name">Last Name: </label>
+        <input formControlName="last_name" type="text" id="last_name" placeholder="Enter Last Name">
+        <br />
+        <label for="event_date">Event Date: </label>
+        <input formControlName="start_date" type="date" id="event_date">
+        <br />
+        <label for="event_time">Event Time: </label>
+        <input formControlName="start_time" type="time" id="event_time">
+        <br />
+        <label for="location">Location: </label>
+        <input formControlName="location" type="string" id="location">
+        <br />
+        <label for="description">Description: </label>
+        <textarea formControlName="description" type="textarea" id="description">
+                </textarea>
+        <!-- Event Cost -->
+        <br />
+        <label for="cost">Event Cost:</label>
+        <input formControlName="cost" type="number" id="event_cost">
+        <!-- Grade Format -->
+        <br />
+        <label for="grade">Grading: </label>
+        <select formControlName="grade_id" name="grade" id="grade">
+            <option value=1>N/A</option>
+            <option value=2>Pass</option>
+            <option value=3>Fail</option>
+            <option value=4>Presentation</option>
+        </select> <span style="color:darkgrey"> Omit if event hasn't happened yet.</span>
+        <!-- Work Related Justification -->
+        <br />
+        <label for="department">Which Department Would This Fall Under: </label>
+        <select formControlName="event_type" name="department" id="department">
+            <option value="IT">IT</option>
+            <option value="Sales">Sales</option>
+            <option value="Retail">Retail</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Operations">Operations</option>
+            <option value="Benefits">Benefits</option>
+        </select>
+        <!-- Attachments-->
+        <br />
+        <!-- <label for="attachments">Additional Information</label>
+        <input type="file" id="attachments"> -->
+        <!-- Submit -->
+        <br />
+        <input type="submit" (click)="onSubmit()" style="color: white; background-color: orange;" value="Update Form">
+        <button type="submit" (click)="submitForApproval()" style="color: white; background-color: green;">Submit for Approval</button>
+    </form>
+</div>
+<div>
+    Your form has been approved, so no more edits can be made.
+</div>
 

@@ -24,4 +24,8 @@ export class FormService {
   getFormById(user: User): Observable<any>{
    return this.httpService.post<any>('http://localhost:8080/TuitionReimbursement/getForm', JSON.stringify(user));
   }
+
+  getSubmittedForms(): Observable<TuitionForm[]>{
+    return this.httpService.get<TuitionForm[]>('http://localhost:8080/TuitionReimbursement/getForm');
+  }
 }

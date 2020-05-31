@@ -69,4 +69,24 @@
     <servlet-name>SingleUserServlet</servlet-name>
     <url-pattern>/singleUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BenCoServlet</display-name>
+    <servlet-name>BenCoServlet</servlet-name>
+    <servlet-class>com.tuition.servlets.BenCoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BenCoServlet</servlet-name>
+    <url-pattern>/benco/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SupervisorServlet</display-name>
+    <servlet-name>SupervisorServlet</servlet-name>
+    <servlet-class>com.tuition.servlets.SupervisorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SupervisorServlet</servlet-name>
+    <url-pattern>/supervisor/login</url-pattern>
+  </servlet-mapping>
 </web-app>

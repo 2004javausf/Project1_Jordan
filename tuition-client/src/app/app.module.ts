@@ -9,7 +9,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TuitionFormComponent } from './components/tuition-form/tuition-form.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { LoginComponent } from './login/login.component';
-import { TuitionFormDetailComponent } from './components/tuition-form-detail/tuition-form-detail.component'
+import { TuitionFormDetailComponent } from './components/tuition-form-detail/tuition-form-detail.component';
+import { SubmittedFormsComponent } from './components/submitted-forms/submitted-forms.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TuitionFormDetailComponent } from './components/tuition-form-detail/tui
     TuitionFormComponent,
     EmployeeComponent,
     LoginComponent,
-    TuitionFormDetailComponent
+    TuitionFormDetailComponent,
+    SubmittedFormsComponent
   ],
   imports: [
     BrowserModule,

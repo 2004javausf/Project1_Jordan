@@ -11,5 +11,7 @@ export interface TuitionForm {
     cost: number,
     event_type: string, 
     user_id: number,
-    grade_id: number
+    grade_id: number,
+    submitted: string,
+    approved: string
 }

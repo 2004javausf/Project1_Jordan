@@ -38,10 +38,10 @@ public class Users extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		User user = mapper.readValue(request.getInputStream(), User.class);
-		UserDAO udi = new UserDAOImpl();
-		udi.createUser(user);	
+		ObjectMapper mapper = new ObjectMapper(); //Create mapper object
+		User user = mapper.readValue(request.getInputStream(), User.class); // Deserialize the object and put it to a java object.
+		UserDAO udi = new UserDAOImpl(); // Create an instance of my DAOImpl class which will handle and database procedures.
+		udi.createUser(user);	//Uses my DAOImpl class to 
 		response.setStatus(201);
 	}
 

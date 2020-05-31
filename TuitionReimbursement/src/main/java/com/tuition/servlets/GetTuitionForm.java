@@ -23,6 +23,19 @@ public class GetTuitionForm extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		PrintWriter pw = response.getWriter();
+		String infoJSON;
+		TuitionFormDAO tdi = new TuitionFormDAOImpl();
+		try {
+			infoJSON = mapper.writeValueAsString(tdi.getSubmittedForms());
+			response.setContentType("application/json");
+			pw.print(infoJSON);
+			System.out.println(infoJSON);
+		}catch(JsonProcessingException e ) {
+			e.printStackTrace();
+		}
+		pw.flush();
 		
 	}
 

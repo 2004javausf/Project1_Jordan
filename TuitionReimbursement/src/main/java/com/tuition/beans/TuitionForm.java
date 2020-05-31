@@ -17,19 +17,20 @@ public class TuitionForm {
 	//private Blob attachments;
 	private int user_id;
 	private int grade_id;
+	private String submitted;
+	private String approved;
 	
 	public TuitionForm() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
+	
 
 
 
 	public TuitionForm(int form_id, String first_name, String last_name, String start_date, String start_time,
-			String location, String description, double cost, String event_type, int user_id,
-			int grade_id) {
+			String location, String description, double cost, String event_type, int user_id, int grade_id,
+			String submitted, String approved) {
 		super();
 		this.form_id = form_id;
 		this.first_name = first_name;
@@ -40,9 +41,29 @@ public class TuitionForm {
 		this.description = description;
 		this.cost = cost;
 		this.event_type = event_type;
-		//this.attachments = attachments;
 		this.user_id = user_id;
 		this.grade_id = grade_id;
+		this.submitted = submitted;
+		this.approved = approved;
+	}
+
+
+
+
+	public String getSubmitted() {
+		return submitted;
+	}
+
+	public void setSubmitted(String submitted) {
+		this.submitted = submitted;
+	}
+
+	public String getApproved() {
+		return approved;
+	}
+
+	public void setApproved(String approved) {
+		this.approved = approved;
 	}
 
 
@@ -156,17 +177,17 @@ public class TuitionForm {
 	}
 
 
+
+
 	@Override
 	public String toString() {
 		return "TuitionForm [form_id=" + form_id + ", first_name=" + first_name + ", last_name=" + last_name
 				+ ", start_date=" + start_date + ", start_time=" + start_time + ", location=" + location
-				+ ", description=" + description + ", cost=" + cost + ", event_type=" + event_type + ", user_id=" + user_id + "]";
-	} 
-	
-	
-	
-	
-	
+				+ ", description=" + description + ", cost=" + cost + ", event_type=" + event_type + ", user_id="
+				+ user_id + ", grade_id=" + grade_id + ", submitted=" + submitted + ", approved=" + approved + "]";
+	}
+
+
 	
 
 }
