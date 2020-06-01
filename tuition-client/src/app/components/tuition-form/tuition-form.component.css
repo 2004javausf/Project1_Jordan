@@ -10,6 +10,7 @@
     max-width: 75%;
     border: 2px solid gray;
     border-radius: 4px;
+    box-shadow: 3px 2px 4px gray;
 }
 .form-wrapper input{
     padding: 1.25em;
