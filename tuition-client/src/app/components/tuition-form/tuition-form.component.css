@@ -1,0 +1,50 @@
+.container{
+ 
+}
+.form-wrapper{
+    background-color: #9590c2;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1em;
+    text-align: center;
+    max-width: 75%;
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+.form-wrapper input{
+    padding: 1.25em;
+    margin: 0.25em;
+    width: 50%;
+    box-sizing: border-box;
+}
+.form-wrapper textarea{
+    padding: 0.25em;
+    margin: 0.25em;
+    width: 50%;
+    height: 100px
+}
+.form-wrapper label{
+    vertical-align: top;
+}
+.form-wrapper select{
+    padding: 0.25em;
+    margin: 0.25em;
+    width: 25%;
+}
+
+
+input[type=submit] {
+    color: #9590c2;;
+    background-color: white;
+    
+}
+input[type=submit]:hover {
+    text-size-adjust: 14px;
+    color: white;
+    background-color:#90c292;
+    border-radius: 4px;
+
+}
+span{
+    color: black;
+}

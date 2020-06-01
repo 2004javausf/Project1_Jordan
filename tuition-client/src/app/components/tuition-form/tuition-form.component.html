@@ -1,5 +1,7 @@
 
-<h3>Tuition Form</h3>
+<div class="container">
+    <div class="form-wrapper">
+        <h3>Tuition Form</h3>
         <label for="first_name">First Name: </label>
         <input [(ngModel)]="form.first_name" type="text" id="first_name" placeholder="Enter First Name"> 
         <br/>
@@ -24,23 +26,25 @@
         <input [(ngModel)]="form.cost" type="number" id="event_cost">
         <!-- Grade Format -->
         <br />
-        <label for="grade">Grading: </label>
-        <select [(ngModel)]="form.grade_id" name="grade" id="grade">
-            <option value=1>N/A</option>
-            <option value=2>Pass</option>
-            <option value=3>Fail</option>
-            <option value=4>Presentation</option>
-        </select> <span style="color:darkgrey"> Select 'N/A' if not yet attened.</span>
-        <!-- Work Related Justification -->
-        <br />
-        <label for="department">What Type of Event is This: </label>
-        <select [(ngModel)]="form.event_type" name="department" id="department">
-            <option value="Course">Course</option>
-            <option value="Seminar">Seminar</option>
-            <option value="Cert Prep">Cert Prep</option>
-            <option value="Cert">Cert</option>
-            <option value="Tech Training">Tech Training</option>
-        </select>
+        <div class="select-inputs">
+            <label for="grade">Grading: </label>
+            <select [(ngModel)]="form.grade_id" name="grade" id="grade">
+                <option value=1>N/A</option>
+                <option value=2>Pass</option>
+                <option value=3>Fail</option>
+                <option value=4>Presentation</option>
+            </select> <span> Select 'N/A' if not yet attened.</span>
+            <!-- Work Related Justification -->
+            <br />
+            <label for="department">Event Type: </label>
+            <select [(ngModel)]="form.event_type" name="department" id="department">
+                <option value="Course">Course</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Cert Prep">Cert Prep</option>
+                <option value="Cert">Cert</option>
+                <option value="Tech Training">Tech Training</option>
+            </select>
+        </div>
         <!-- Attachments-->
         <br />
         <label for="attachments">Additional Information</label>
@@ -48,3 +52,5 @@
         <!-- Submit -->
         <br/>
         <input type="submit" (click)="onSubmit()" value="File Reimbursement">
+    </div>
+    </div>

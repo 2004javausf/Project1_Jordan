@@ -1,7 +1,8 @@
 <div *ngIf="form.approved !== 'APPROVED'">
 <h1>Would you like to edit your form?</h1>
-    <h3>Tuition Form</h3>
+
     <form [formGroup]="myTuitionForm">
+            <h3>Tuition Form</h3>
         <label for="first_name">First Name: </label>
         <input formControlName="first_name" type="text" id="first_name" placeholder="Enter First Name">
         <br />
@@ -32,17 +33,16 @@
             <option value=2>Pass</option>
             <option value=3>Fail</option>
             <option value=4>Presentation</option>
-        </select> <span style="color:darkgrey"> Omit if event hasn't happened yet.</span>
+        </select> <span> Select 'N/A' if event hasn't happened yet.</span>
         <!-- Work Related Justification -->
         <br />
-        <label for="department">Which Department Would This Fall Under: </label>
+        <label for="department">Event Type: </label>
         <select formControlName="event_type" name="department" id="department">
-            <option value="IT">IT</option>
-            <option value="Sales">Sales</option>
-            <option value="Retail">Retail</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Operations">Operations</option>
-            <option value="Benefits">Benefits</option>
+            <option value="Course">Course</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Cert Prep">Cert Prep</option>
+            <option value="Cert">Cert</option>
+            <option value="Tech Training">Tech Training</option>
         </select>
         <!-- Attachments-->
         <br />
@@ -50,8 +50,8 @@
         <input type="file" id="attachments"> -->
         <!-- Submit -->
         <br />
-        <input type="submit" (click)="onSubmit()" style="color: white; background-color: orange;" value="Update Form">
-        <button type="submit" (click)="submitForApproval()" style="color: white; background-color: green;">Submit for Approval</button>
+        <input type="submit" (click)="onSubmit()" value="Update Form">
+        <button type="submit" (click)="submitForApproval()" >Submit for Approval</button>
     </form>
 </div>
 <div>

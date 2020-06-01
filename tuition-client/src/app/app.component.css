@@ -1,0 +1,59 @@
+nav a {
+    text-decoration: none;
+    padding: 0.25em 0.25em;
+    margin: 0em 0.10em;
+    border: 1px solid white;
+    border-radius: 5%;
+}
+
+nav a:hover{
+    border: 1px solid darkgrey;
+    color:white;
+    background-color: gray;
+}
+
+
+
+h3{
+    text-align: center;
+    color: darkgray;
+}
+
+form {
+    float: center;
+}
+.form-wrapper{
+    text-align: center;
+}
+.form-wrapper input{
+    margin: 0.25em;
+}
+
+button#employee:hover{
+    color: white;
+    background-color: rgb(12, 142, 185);
+    border-radius: 4px;
+}
+
+button#supervisor:hover{
+    color: white;
+    background-color: rgba(27, 95, 0, 0.712);
+    border-radius: 4px;
+}
+button#benco:hover{
+    color: white;
+    background-color: rgb(184, 119, 0);
+    border-radius: 4px;
+}
+.header{
+    text-align: center;
+    margin: auto;
+    background-color: rgb(2, 2, 2);
+    vertical-align: middle;
+    padding: 70px 0;
+    margin-bottom: 10px;
+}
+h2{
+    margin: auto;
+    color: white;
+}

@@ -1,4 +1,6 @@
-<h2>Welcome</h2>
+<div class="header">
+    <h2>JP Inc. Tuition Reimbursement Center</h2>
+</div>
 <div *ngIf="isLoggedIn == true">
     <nav>
         <a routerLink="/tuitionForm/{{this.employee.user_id}}">Request for Reimbursement</a>
@@ -11,17 +13,20 @@
 </div>
 <div *ngIf="isLoggedIn == false">
         <h3>Login Here!</h3>
-
-        <form [formGroup]="myLogin">
-            <br />
-            <input placeholder="Enter username" formControlName="name">
-            <br />
-            <input placeholder="Enter your password" formControlName="password">
-            <div class="row">
-                <button (click)="employeeLogin()"><em>Employee</em></button>
-                <button (click)="supervisorLogin()"><em>Supervisor</em></button>
-                <button (click)="benefitsLogin()"><em>Benefit Co.</em></button> 
-            </div>
-        </form>
+        <div class="form-wrapper">
+            <form [formGroup]="myLogin">
+                <br />
+                <label for="username">Username: </label>
+                <input placeholder="Enter username" formControlName="name">
+                <br />
+                <label for="password">Password: </label>
+                <input placeholder="Enter your password" formControlName="password">
+                <div class="row">
+                    <button id="employee" (click)="employeeLogin()"><em>Employee</em></button>
+                    <button id="supervisor" (click)="supervisorLogin()"><em>Supervisor</em></button>
+                    <button id="benco" (click)="benefitsLogin()"><em>Benefit Co.</em></button> 
+                </div>
+            </form>
+        </div>
 </div>
 <router-outlet></router-outlet>
