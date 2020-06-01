@@ -15,4 +15,13 @@ export class EmployeeService {
 
     return this.httpService.post<any>('http://localhost:8080/TuitionReimbursement/employee/login', JSON.stringify(user))
   }
+
+  updateEmployee(employee: Employee): Observable<Employee>{
+    return this.httpService.put<any>('http://localhost:8080/TuitionReimbursement/employee/login', JSON.stringify(employee))
+  }
+
+  getEmployeeById(user: User): Observable<Employee>{
+
+    return this.httpService.post<any>('http://localhost:8080/TuitionReimbursement/getEmployee', JSON.stringify(user))
+  }
 }

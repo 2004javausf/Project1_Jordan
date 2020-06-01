@@ -7,7 +7,7 @@ import { SubmittedFormsComponent } from './components/submitted-forms/submitted-
 
 
 const routes: Routes = [
-  { path: 'tuitionForm', component: TuitionFormComponent},
+  { path: 'tuitionForm/:id', component: TuitionFormComponent},
   {path: 'employee/login', component: LoginComponent},
   {path: 'editForm/:id', component: TuitionFormDetailComponent},
   {path: 'submittedForms', component: SubmittedFormsComponent}

@@ -49,6 +49,31 @@ public class BenCoDAOImpl implements BenCoDAO {
 	
 	
 	
+	
+
+//============================================================
+//=====================Update Benco========================
+//============================================================
+	
+	
+	
+	public void updateBencoTuition(BenCo benco) {
+		
+		try {
+			connection = cc.getConnection();
+			String sql ="UPDATE BEN_CO"
+					+ " SET TUITION_LIMIT = ?";
+			stmt.setDouble(1, benco.getTuition_limit());
+			stmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeResources();
+		}
+	}
+	
+	
+	
 //============================================================
 //=====================Close Resources========================
 //============================================================

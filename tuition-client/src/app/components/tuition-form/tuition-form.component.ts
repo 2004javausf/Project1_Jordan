@@ -3,6 +3,7 @@ import { FormService } from '../../services/form.service';
 import {TuitionForm} from '../../interfaces/tuition-form'
 import {FormBuilder} from '@angular/forms';
 import { Employee } from 'src/app/interfaces/employee';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class TuitionFormComponent implements OnInit {
 
   @Input() employee: Employee;
   @Input() loggedIn;
+
+  empId = 0;
 
  form: TuitionForm = {
    form_id: 0,
@@ -34,13 +37,16 @@ export class TuitionFormComponent implements OnInit {
  submit = false;
 
   constructor(
-    private formService: FormService) { }
+    private formService: FormService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.empId = +this.route.snapshot.paramMap.get('id');
   }
 
   onSubmit(){
     this.submit = true;
+    this.form.user_id = this.empId
     this.formService.addForm(this.form).subscribe(res =>{ 
       this.form.first_name= "";
       this.form.last_name= "";
@@ -50,7 +56,7 @@ export class TuitionFormComponent implements OnInit {
       this.form.description= "";
       this.form.cost= 0;
       this.form.event_type= "";
-      this.form.user_id =69
+      this.form.user_id =0
       this.form.grade_id= 0;
       this.form.submitted ='NO';
       this.form.approved = "PENDING"

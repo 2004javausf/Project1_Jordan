@@ -33,14 +33,13 @@
         </select> <span style="color:darkgrey"> Select 'N/A' if not yet attened.</span>
         <!-- Work Related Justification -->
         <br />
-        <label for="department">Which Department Would This Fall Under: </label>
+        <label for="department">What Type of Event is This: </label>
         <select [(ngModel)]="form.event_type" name="department" id="department">
-            <option value="IT">IT</option>
-            <option value="Sales">Sales</option>
-            <option value="Retail">Retail</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Operations">Operations</option>
-            <option value="Benefits">Benefits</option>
+            <option value="Course">Course</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Cert Prep">Cert Prep</option>
+            <option value="Cert">Cert</option>
+            <option value="Tech Training">Tech Training</option>
         </select>
         <!-- Attachments-->
         <br />

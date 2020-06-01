@@ -1,7 +1,7 @@
 <h2>Welcome</h2>
 <div *ngIf="isLoggedIn == true">
     <nav>
-        <a routerLink="/tuitionForm">Request for Reimbursement</a>
+        <a routerLink="/tuitionForm/{{this.employee.user_id}}">Request for Reimbursement</a>
         <a routerLink="/editForm/{{this.employee.user_id}}"> Edit Your Form</a>
         <span *ngIf="status == 'benefits' || status == 'supervisor'">
         <a routerLink="/submittedForms">View Pending Forms</a>

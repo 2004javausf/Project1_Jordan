@@ -16,19 +16,21 @@
         </tr>
     </thead>
     <tbody>
+        
         <tr *ngFor="let form of submittedForms">
-            <td>{{form.first_name}}</td>
-            <td>{{form.last_name}}</td>
-            <td>{{form.start_date}}</td>
-            <td>{{form.start_time}}</td>
-            <td>{{form.location}}</td>
-            <td>{{form.description}}</td>
-            <td>{{form.cost}}</td>
-            <td>{{form.event_type}}</td>
-            <td>{{form.grade_id}}</td>
-            <td><button (click)="approve(this.form)">Approve</button></td>
-            <td><button>Deny</button></td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.first_name}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.last_name}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.start_date}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.start_time}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.location}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.description}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.cost}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.event_type}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'">{{form.grade_id}}</td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'"><button (click)="approve(this.form)">Approve</button></td>
+            <td *ngIf="form.approved != 'APPROVED' && form.submitted == 'yes'"><button (click)="deny(this.form)">Deny</button></td>
         </tr>
+        
     </tbody>
 </table>
 

@@ -89,4 +89,14 @@
     <servlet-name>SupervisorServlet</servlet-name>
     <url-pattern>/supervisor/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetEmployeeServlet</display-name>
+    <servlet-name>GetEmployeeServlet</servlet-name>
+    <servlet-class>com.tuition.servlets.GetEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployeeServlet</servlet-name>
+    <url-pattern>/getEmployee</url-pattern>
+  </servlet-mapping>
 </web-app>

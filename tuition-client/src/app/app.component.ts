@@ -100,11 +100,12 @@ export class AppComponent {
       dept_id: 0
     }
 
-    this.employee = {
-      employee_id: 0,
+    this.supervisor = {
+      supervisor_id: 0,
       first_name: "",
       last_name: "",
       tuition_limit: 0,
+      dhead: 'NO',
       user_id: 0,
       dept_id: 0
 
